@@ -1,0 +1,12 @@
+[package]
+name = "rgeometry-demo-simple"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+svg = "0.18.0"
+rgeometry-demo = { path = "../rgeometry-demo" }

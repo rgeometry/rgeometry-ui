@@ -1,0 +1,14 @@
+[package]
+name = "rgeometry-demo-random-convex"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+svg = "0.18.0"
+rgeometry = "0.10.2"
+rand = { version = "0.8.5", default-features = false, features = ["small_rng"] }
+rgeometry-demo = { path = "../rgeometry-demo" }

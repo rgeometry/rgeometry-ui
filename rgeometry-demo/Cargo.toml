@@ -1,0 +1,8 @@
+[package]
+name = "rgeometry-demo"
+version = "0.1.0"
+authors = ["David Himmelstrup <lemmih@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+svg = "0.18.0"

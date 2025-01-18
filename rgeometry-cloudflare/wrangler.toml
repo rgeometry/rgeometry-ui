@@ -1,0 +1,26 @@
+name = "rgeometry-cloudflare"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-07-13"
+account_id = "d4a32894a9531f0a887025623b0bd7ce"
+
+routes = [{ pattern = "demo.rgeometry.org", custom_domain = true }]
+
+[assets]
+directory = "assets"
+
+[build]
+command = """
+mkdir -p assets/pkg &&
+cp -r public/. assets/ &&
+wasm-pack build --out-dir assets/pkg --release --no-typescript --target web --out-name client --features hydrate --no-default-features &&
+worker-build --release --features ssr --no-default-features
+"""
+
+[env.quick]
+[env.quick.build]
+command = """
+mkdir -p assets/pkg &&
+cp -r public/. assets/ &&
+wasm-pack build --out-dir assets/pkg --dev --no-opt --no-typescript --target web --out-name client --features hydrate --no-default-features &&
+worker-build --dev --no-opt --features ssr --no-default-features
+"""
